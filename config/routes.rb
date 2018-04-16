@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :stores
+  resources :stores do
+    resources :details
+  end
 end

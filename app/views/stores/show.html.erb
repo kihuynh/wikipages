@@ -1,5 +1,29 @@
 <h1><%= @store.name %></h1>
 
+
+<% if @store.details.any? %>
+  <h4>Here are the details for this store:</h4>
+
+  <ul>
+    <% @store.details.each do |detail| %>
+      <li>
+        <%= detail.address %> |
+        <%= detail.phone %> |
+        <%= detail.website %> |
+        <%= detail.hours %> |
+        <%= link_to "Edit", edit_store_detail_path(@store, detail) %> |
+        <%= link_to "Delete", store_detail_path(@store, detail),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no tasks yet!</p>
+<% end %>
+
+<p><%= link_to "Add a detail", new_store_detail_path(@store) %></p>
+
 <p><%= link_to "Edit", edit_store_path(@store) %></p>
 <p><%= link_to "Delete", store_path(@store),
                          :data => {:confirm => "You sure?",

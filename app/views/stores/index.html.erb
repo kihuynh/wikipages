@@ -2,6 +2,8 @@
 
 <ul>
   <% @stores.each do |store| %>
-    <li><%= store.name %></li>
+    <li><%= link_to store.name, store_path(store) %></li>
   <% end %>
 </ul>
+
+<%= link_to "New Store", new_store_path %>

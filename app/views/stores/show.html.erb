@@ -1,0 +1,8 @@
+<h1><%= @store.name %></h1>
+
+<p><%= link_to "Edit", edit_store_path(@store) %></p>
+<p><%= link_to "Delete", store_path(@store),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+
+<p><%= link_to "Return to Stores", stores_path %></p>
